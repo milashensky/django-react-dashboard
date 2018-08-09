@@ -1,0 +1,4 @@
+Django==2.1
+psycopg2-binary==2.7.4
+requests==2.19.1
+requests[socks]

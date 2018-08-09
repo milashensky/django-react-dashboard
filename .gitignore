@@ -1,0 +1,13 @@
+*.pyc
+*~
+*.mo
+local_settings.py
+venv/*
+/.idea
+.DS_Store
+/venv/
+node_modules/
+assets/*
+assets/app.js*
+dist/
+package-lock.json

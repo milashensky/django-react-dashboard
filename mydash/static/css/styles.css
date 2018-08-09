@@ -1,0 +1,22 @@
+ul.sidenavbar li > a {
+    color: white;
+}
+ul.sidenavbar {
+    margin-top: 65px;
+}
+@media (min-width: 993px) {
+    footer,
+    .content-container {
+        padding-left: 300px;
+    }
+    #logo-container {
+        width: 300px;
+        height: 65px;
+        background-color: #424242 !important;
+        text-align: center;
+    }
+
+}
+.topnav {
+    height: 65px;
+}
