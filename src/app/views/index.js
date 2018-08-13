@@ -1,5 +1,11 @@
+import React from 'react';
 import Home from './home';
 import Dashboard from './dashboard';
+import ItemDetail from './itemdetail';
 
-export { Home as Home };
-export { Dashboard as Dashboard };
+const NoMatch = () => (
+<div>
+    <h2>404</h2>
+    <p>No such page is found.</p>
+</div>);
+export {ItemDetail, Home, Dashboard, NoMatch }

@@ -9,7 +9,7 @@
                         <span class="card-title">Log In</span>
                         <form method="POST" action="">
                             {% csrf_token %}
-                            <p style="color:red">{{ form.non_field_errors|first }}</p>
+                            <p class="red-text text-darken-2">{{ form.non_field_errors|first }}</p>
                             <div class="input-field">
                                 <input id="username" name="username" type="text" class="validate" value="{{ form.username.value|default_if_none:"" }}">
                                 <label for="username">Username</label>
@@ -18,7 +18,7 @@
                                 <input id="password"type="password" name="password" class="validate">
                                 <label for="password">Password</label>
                             </div>
-                            <p style="color:red">{{ form.errors.password|first }}</p>
+                            <p class="red-text text-darken-2">{{ form.errors.password|first }}</p>
                             <div>
                                 <button class="btn grey darken-2" type="submit">Log In</button>
                             </div>

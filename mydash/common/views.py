@@ -1,4 +1,4 @@
-from django.views.generic import View, TemplateView
+from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import REDIRECT_FIELD_NAME
 

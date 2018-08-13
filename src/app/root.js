@@ -1,21 +1,31 @@
 import React from 'react';
-import { Dashboard, Home } from './views';
-import { Nav, SideNav } from './nav';
-import { Provider } from 'react-redux'
-import { BrowserRouter as Router, Route, Link, withRouter } from 'react-router-dom';
-
+import { Dashboard, Home, ItemDetail, NoMatch } from './views';
+import { Nav, SideNav, Footer } from './nav';
+import { connect, Provider } from 'react-redux';
+import { Route, Switch } from 'react-router'
+import { withRouter } from 'react-router-dom';
+import { ConnectedRouter } from 'connected-react-router'
 
 const routes = [
     {
         path: '/',
         name: 'Home',
         component: Home,
+        navigatable: true,
         exact: true
     },
     {
         path: '/dashboard/',
         name: 'Dashboard',
         component: Dashboard,
+        navigatable: true,
+        exact: false
+    },
+    {
+        path: '/item/:id',
+        name: 'Item Details',
+        component: ItemDetail,
+        parent: 'Dashboard',
         exact: false
     }
 ]
@@ -27,21 +37,25 @@ const routeItems = routes.map((item) => {
     );
 });
 
-const Root = ({store}) => {
+const Root = ({store, history}) => {
     return (
         <Provider store={store}>
-            <Router>
-                <div>
-                    <TopNav />
-                    <LeftNav />
+            <ConnectedRouter history={history}>
+                <div className="main grey lighten-5">
+                    <Nav routes={routes} />
+                    <SideNav routes={routes} />
                     <div className="content-container">
                         <div className="container">
-                            {routeItems}
+                             <Switch>
+                                 {routeItems}
+                                 <Route component={NoMatch} />
+                             </Switch>
                         </div>
                     </div>
+                    <Footer />
                 </div>
-            </Router>
+            </ConnectedRouter>
         </Provider>
     );
 };
-export default Root;
+export {Root, routes};

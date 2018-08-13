@@ -1,18 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { getNavItems } from '../utils'
+import { connect } from 'react-redux';
 
 const SideNav = (props) => {
-    const navItems = props.routes.map((item) => {
-        return (
-            <li key={item.name} className={(item.path == props.location.pathname ? 'active' : '')}>
-                <Link to={item.path}>{item.name}</Link>
-            </li>
-        );
-    });
+    const navItems = getNavItems(props.state.routeChange)
     return (
-        <ul className="sidenav sidenav-fixed hide-on-med-and-down grey darken-2 sidenavbar">
-            {navItems}
-        </ul>
+        <div className="sidenav sidenav-fixed hide-on-med-and-down grey darken-2 sidenavbar">
+            <div className="logo-container">
+                <a id="side-logo-container" href="/" className="brand-logo">Brand</a>
+            </div>
+            <ul className="">
+                {navItems}
+            </ul>
+        </div>
     );
 }
-export default SideNav;
+export default connect(
+    (state) => ({
+        state: state,
+    })
+)(SideNav);

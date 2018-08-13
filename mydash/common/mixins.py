@@ -18,7 +18,6 @@ class DjangoJSONEncoder(json.JSONEncoder):
         elif isinstance(obj, (datetime.datetime, datetime.date)):
             return str(obj.strftime('%s'))
         elif isinstance(obj, QuerySet):
-            # + support of ValuesQuerySet
             return json.loads(serialize('json', obj)) if obj._fields is None else list(obj)
         return json.JSONEncoder.default(self, obj)
 
