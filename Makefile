@@ -1,7 +1,11 @@
-all: install collectstatic migrate
+all: install webpack collectstatic migrate
 
 install:
+	@npm install
 	@pip install -Ur requirements/base.txt
+
+webpack:
+	@webpack --display-error-details
 
 makemessages:
 	@cd smappi && python ../manage.py makemessages -l ru --no-wrap --no-location
