@@ -138,7 +138,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': '/tmp/smappi_proxy.log',
+            'filename': '/tmp/mydash.log',
             'formatter': 'verbose'
         },
     },
